@@ -1,4 +1,6 @@
 import React from 'react'
+import TButton from './core/TButton'
+import { ArrowTopRightOnSquareIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline'
 
 const SurveyListItem = ({ survey, onDeleteClick }) => {
   return (

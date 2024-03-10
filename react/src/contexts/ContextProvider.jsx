@@ -12,7 +12,7 @@ const StateContext = createContext({
 const tmpSurveys = [
   {
     "id": 1,
-    "image_url": "https:\/\/api.yoursurveys.xyz\/images\/vJutXzn02CDwdOyh.png",
+    "image_url": "https:\/\/www.abhigeorge.com\/img\/logo.png",
     "title": "TheCodeholic YouTube channel",
     "slug": "thecodeholic-youtube-channel",
     "status": true,
@@ -153,7 +153,7 @@ const tmpSurveys = [
   },
   {
     "id": 2,
-    "image_url": "https:\/\/api.yoursurveys.xyz\/images\/gjIHElz4aKrL0nT0.png",
+    "image_url": "https:\/\/k2bindia.com\/wp-content\/uploads\/2015\/08\/React.png",
     "title": "React",
     "slug": "react",
     "status": true,
@@ -165,9 +165,9 @@ const tmpSurveys = [
   },
   {
     "id": 3,
-    "image_url": "https:\/\/api.yoursurveys.xyz\/images\/WPfzo0g66huUYYwR.png",
-    "title": "Laravel 9",
-    "slug": "laravel-9",
+    "image_url": "https:\/\/laravelnews.s3.amazonaws.com\/images\/laravel-featured.png",
+    "title": "Laravel 11",
+    "slug": "laravel-11",
     "status": true,
     "description": "Laravel is a web application framework with expressive, elegant syntax. We\u2019ve already laid the foundation \u2014 freeing you to create without sweating the small things.",
     "created_at": "2022-01-07 13:28:56",
