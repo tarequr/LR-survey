@@ -1,16 +1,42 @@
 import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axiosClient from '../axios.js'
 
 function Signup() {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [error, setError] = useState({__html: ''});
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setError({__html: ''});
+
+    axiosClient.post('/signup', {
+      name: fullName,
+      email,
+      password,
+      password_confirmation: passwordConfirmation
+    })
+    .then(({ data }) => {
+      console.log(data);
+    })
+    .catch(( error ) => {
+      console.log(error);
+    });
+  }
+
   return (
     <>
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Signup for free
       </h2>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
+        <form onSubmit={onSubmit} className="space-y-6" action="#" method="POST">
 
-        <div>
+          <div>
             <label htmlFor="full-name" className="block text-sm font-medium leading-6 text-gray-900">
               Full Name
             </label>
