@@ -45,9 +45,7 @@ function Signup() {
     ev.preventDefault();
     setError({ __html: "" });
 
-
-    axiosClient
-      .post("/signup", {
+    axiosClient.post("/signup", {
         name: fullName,
         email,
         password,
