@@ -77,6 +77,7 @@ function Signup() {
 
         {error.__html && (<div className="bg-red-500 rounded py-2 px-3 text-white" dangerouslySetInnerHTML={error}>
         </div>)}
+
         <form onSubmit={onSubmit} className="space-y-6" action="#" method="POST">
 
           <input type="hidden" name="remember" defaultValue="true" />
