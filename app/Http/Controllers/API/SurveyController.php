@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\Survey;
+use App\Http\Requests\StoreSurveyRequest;
+use App\Http\Requests\UpdateSurveyRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class SurveyController extends Controller
 {
@@ -18,7 +20,7 @@ class SurveyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSurveyRequest $request)
     {
         //
     }
@@ -26,7 +28,7 @@ class SurveyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Survey $survey)
     {
         //
     }
@@ -34,7 +36,7 @@ class SurveyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateSurveyRequest $request, Survey $survey)
     {
         //
     }
@@ -42,7 +44,7 @@ class SurveyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Survey $survey)
     {
         //
     }
