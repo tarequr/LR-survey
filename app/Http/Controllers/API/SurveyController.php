@@ -3,18 +3,24 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Survey;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreSurveyRequest;
 use App\Http\Requests\UpdateSurveyRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\SurveyResource;
 
 class SurveyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user = $request->user();
+
+        return  SurveyResource::collection(Survey::where('user_id', $user->id)
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(10));
     }
 
     /**
