@@ -6,9 +6,11 @@ use App\Models\Survey;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Resources\SurveyResource;
 use App\Http\Requests\StoreSurveyRequest;
 use App\Http\Requests\UpdateSurveyRequest;
+use App\Models\SurveyQuestion;
 
 class SurveyController extends Controller
 {
@@ -99,5 +101,28 @@ class SurveyController extends Controller
         $absulatePath = public_path($dir);
         $relativePath = $dir . $file;
 
+        if (!File::exists($absulatePath)) {
+            File::makeDirectory($absulatePath, 0755, true);
+        }
+        file_put_contents($absulatePath, $image);
+
+        return $relativePath;
+    }
+
+    private function createQuestion($data)
+    {
+        if (is_array($data['data'])) {
+            $data['data'] = json_encode($data['data']);
+        }
+
+        $validator = Validator::make($data, [
+            'question' => 'required|string',
+            'type' => ['required', new Enum(QuestionTypeEnum::class)],
+            'description' => 'nullable|string',
+            'data' => 'present',
+            'survey_id' => 'exists:App\Models\Survey, id'
+        ]);
+
+        return SurveyQuestion::create($validator->validated());
     }
 }
