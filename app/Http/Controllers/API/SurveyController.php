@@ -5,12 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Models\Survey;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\SurveyQuestion;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rules\Enum;
 use App\Http\Resources\SurveyResource;
 use App\Http\Requests\StoreSurveyRequest;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\UpdateSurveyRequest;
-use App\Models\SurveyQuestion;
 
 class SurveyController extends Controller
 {
@@ -52,9 +54,14 @@ class SurveyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Survey $survey)
+    public function show(Survey $survey, Request $request)
     {
-        //
+        $user = $request->user();
+
+        if ($user->id !== $survey->user_id) {
+            return abort(403, 'Unauthorized action');
+        }
+        return new SurveyResource($survey);
     }
 
     /**
