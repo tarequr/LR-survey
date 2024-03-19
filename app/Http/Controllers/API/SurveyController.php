@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Survey;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\SurveyQuestion;
 use App\Http\Controllers\Controller;
+use App\Http\Enums\QuestionTypeEnum;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rules\Enum;
 use App\Http\Resources\SurveyResource;
