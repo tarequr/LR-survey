@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\User::class, 'user_id');
             $table->string('image')->nullable();
-            $table->string('title');
-            $table->string('slug');
-            $table->tinyInteger('status');
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->text('description')->nullable();
             $table->timestamp('expire_date')->nullable();
             $table->timestamps();
