@@ -5,7 +5,7 @@ import Login from "./view/Login";
 import Signup from "./view/Signup";
 import GuestLayout from "./components/GuestLayout";
 import DefaultLayout from "./components/DefaultLayout";
-// import SurveyView from "./view/SurveyView";
+import SurveyView from "./view/SurveyView";
 
 const router = createBrowserRouter([
   {
@@ -24,10 +24,10 @@ const router = createBrowserRouter([
         path: '/surveys',
         element: <Surveys />
       },
-      // {
-      //   path: '/surveys/create',
-      //   element: <SurveyView />
-      // },
+      {
+        path: '/surveys/create',
+        element: <SurveyView />
+      },
     ],
   },
   {
