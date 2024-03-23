@@ -48,10 +48,10 @@ class SurveyController extends Controller
         $survey = Survey::create($data);
 
         // Create new questions
-        // foreach ($data['questions'] as $question) {
-        //     $question['survey_id'] = $survey->id;
-        //     $this->createQuestion($question);
-        // }
+        foreach ($data['questions'] as $question) {
+            $question['survey_id'] = $survey->id;
+            $this->createQuestion($question);
+        }
 
         return new SurveyResource($survey);
     }
